@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Recipes</h1>
+
+    <form>
+        <label for="recipeName">Recipe Name</label>
+        <input type="text" placeholder="Start Here" id="recipeName">
+
+        <label for="recipeSummary">Summary</label>
+        <textarea rows="3" cols="50" placeholder="A brief recipe description here" id="recipeSummary"></textarea>
+
+        <label for="recipeCategory">Recipe Category</label>
+        <select id="recipeCategory">
+            <option selected>Appetizer</option>
+            <option>Salads</option>
+            <option>Bakery</option>
+            <option>Seafood</option>
+            <option>Beef</option>
+            <option>Entrees</option>
+            <option>Dessert</option>
+        </select>
+
+        <div id="enterIngredientField">
+            <h2>Enter Ingedients</h2>
+
+            <ul id="ingredientItems">
+            </ul>
+
+            <label for="recipeSummary">Amount</label>
+            <input type="text" placeholder="2 oz" id="ingredientAmount">
+
+            <label for="recipeSummary">Ingredient</label>
+            <input type="text" placeholder="Asparagus" id="ingredientItem">
+
+            <button type="button" id="addIngredient">Add Another Ingedient</button>
+
+        </div>
+
+        <div id="enterDirectionForm">
+            <h2>Enter Directions</h2>
+
+            <ol id="directionSteps">
+            </ol>
+
+            <label for="recipeSummary">Step</label>
+            <input type="text" placeholder="Enter Next Step" id="directionStep">
+
+            <button type="button" id="addDirection">Add Another Direction</button>
+
+        </div>
+
+        <button type="button" id="submitRecipeButton">Submit Recipe</button>
+    </form>
+
+
+
+
+
+    <section id="displayRecipe">
+        <h1>Current Recipe</h1>
+        <h2 id="createdRecipeName"></h2>
+        <h3 id="createRecipeCategory"></h3>
+        <p id="createdRecipeSummary"></p>
+        <h2>Ingredients</h2>
+        <ul id="ingredientList"></ul>
+        <h2>Directions</h2>
+        <ol id="directionList"></ol>
+    </section>
+    
+
+    <script src="recipes.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
