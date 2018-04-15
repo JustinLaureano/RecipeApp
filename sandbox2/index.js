@@ -35,7 +35,6 @@ googleLoginButton.addEventListener('click', () => {
 
 
 //Create Recipe
-
 const setCreateRecipe = (user) => {
     document.getElementById('container').innerHTML = createRecipeView;
     const submitNewRecipeBtn = document.getElementById('submitRecipeButton');
@@ -156,6 +155,69 @@ const setCreateRecipe = (user) => {
     });
 };
 
+//View User Recipes
+const setViewRecipes = (user) => {
+    document.getElementById('container').innerHTML = viewRecipesView;
+    let userRecipes = document.getElementById('userRecipes');
+
+
+    db.collection('users').doc(user.displayName).collection('recipes').get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.data(), doc.data().recipe.name)
+
+                let recipeName = document.createElement('li');
+                recipeName.addEventListener('click', (e) => {
+                    setViewRecipe(user, e.target.innerHTML);
+                });
+                recipeName.appendChild(document.createTextNode(doc.data().recipe.name));
+                userRecipes.appendChild(recipeName);
+            });
+        })
+        .catch((error) => {
+            console.log('Error: ', error);
+        });
+};
+
+//View Single Recipe
+const setViewRecipe = (user, recipeName) => {
+    console.log(recipeName);
+    document.getElementById('container').innerHTML = viewRecipeView;
+    let createdRecipeName = document.getElementById('createdRecipeName');
+    let createdRecipeCategory = document.getElementById('createdRecipeCategory');
+    let createdRecipeSummary = document.getElementById('createdRecipeSummary');
+    let createdIngredientList = document.getElementById('ingredientList');
+    let createdDirectionList = document.getElementById('directionList');
+
+    const currentRecipe = db.collection('users').doc(user.displayName).collection('recipes').doc(recipeName);
+
+    currentRecipe.get()
+        .then((doc) => {
+            createdRecipeName.appendChild(document.createTextNode('Name: ' + doc.data().recipe.name));
+            createdRecipeSummary.appendChild(document.createTextNode('Summary: ' + doc.data().recipe.summary));
+            createdRecipeCategory.appendChild(document.createTextNode('Category: ' + doc.data().recipe.category));
+
+            for (let i = 0; i < doc.data().recipe.ingredients.length; i++) {
+                let ingredient = document.createElement('li');
+                let ingredientStr = doc.data().recipe.ingredients[i].amount + ' ' + doc.data().recipe.ingredients[i].item;
+                ingredient.appendChild(document.createTextNode(ingredientStr));
+                createdIngredientList.appendChild(ingredient);
+            }
+            
+            for (let i = 0; i < doc.data().recipe.directions.length; i++) {
+                let direction = document.createElement('li');
+                let directionStr = doc.data().recipe.directions[i].step + '.';
+                direction.appendChild(document.createTextNode(directionStr));
+                createdDirectionList.appendChild(direction);
+            }
+        })
+        .catch((error) => {
+            console.log("This recipe doesn't exist.", error);
+        });
+};
+
+
+
 const setHomeView = (user) => {
     document.getElementById('container').innerHTML = Home;
     const createRecipeViewBtn = document.getElementById('createRecipeView');
@@ -165,9 +227,13 @@ const setHomeView = (user) => {
     createRecipeViewBtn.addEventListener('click', () => {
         setCreateRecipe(user);
     });
+
+    viewRecipesViewBtn.addEventListener('click', () => {
+        setViewRecipes(user);
+    });
 }
 
-userLoggedIn = (result) => {
+const userLoggedIn = (result) => {
     const user = result.user;
     googleLoginButton.innerHTML = 'Logout';
     loggedIn = true;
