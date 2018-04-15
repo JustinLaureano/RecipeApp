@@ -143,6 +143,7 @@ let addRecipe = () => {
         clearRecipeForm();
         showPreview();
     }
+    console.log(recipes);
 };
 
 submitRecipeBtn.addEventListener('click', addRecipe);

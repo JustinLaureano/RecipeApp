@@ -1,0 +1,56 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyARPOtKCy_GznFEAqtNjKOvhk1nL-Jl8Ps",
+    authDomain: "recipe-app-ca2ee.firebaseapp.com",
+    databaseURL: "https://recipe-app-ca2ee.firebaseio.com",
+    projectId: "recipe-app-ca2ee",
+    storageBucket: "recipe-app-ca2ee.appspot.com",
+    messagingSenderId: "486892381247"
+};
+firebase.initializeApp(config);
+var db = firebase.firestore();
+
+
+//Google Auth
+
+display infor for signed in user
+    user.displayName
+    user.uid
+    user.photoURL
+    user.email
+
+    if doc.exist then load home, else add new user to collection based on displayName
+
+const googleLoginButton = document.getElementById('googleLogin');
+googleLoginButton.addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider)
+    .then(result => {
+        //Display Home Page to User
+    })
+});
+
+
+//Grab User Collection of Recipes
+let userRecipes = db.doc('users/{ current user }').collection('recipes');
+
+
+// Add recipe created to Recipes List
+userRecipes.add({
+    The created Recipe
+})
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+
+//practice div
+<div id="mainDiv">
+    <h1>Firebase Web App</h1>
+    <textarea id="mainText" cols="50" rows="14"></textarea>
+    <button id="submitBtn" onclick="submitClick()" aria-hidden="true">Enter</button>
+    <button id="loadButton">Load</button>
+</div>

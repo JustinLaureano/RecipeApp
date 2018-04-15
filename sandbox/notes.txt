@@ -1,0 +1,21 @@
+sign in with google auth
+
+collect user id
+
+check if user already in the fire db user
+
+if in db, load page with recipes
+
+if not, add user to db and prompt to create a recipe
+
+
+db structure
+
+users
+    user1
+        recipes
+            recipe1
+            recipe2
+    user2
+        recipes
+            recipe1
