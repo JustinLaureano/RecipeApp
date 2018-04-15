@@ -33,7 +33,6 @@ googleLoginButton.addEventListener('click', () => {
     }
 });
 
-
 //Create Recipe
 const setCreateRecipe = (user) => {
     document.getElementById('container').innerHTML = createRecipeView;
@@ -145,7 +144,6 @@ const setCreateRecipe = (user) => {
             clearRecipeForm();
             // showPreview();
         }
-        // console.log(recipes);
     };
 
     addIngredientBtn.addEventListener('click', addIngredient);
@@ -216,8 +214,6 @@ const setViewRecipe = (user, recipeName) => {
         });
 };
 
-
-
 const setHomeView = (user) => {
     document.getElementById('container').innerHTML = Home;
     const createRecipeViewBtn = document.getElementById('createRecipeView');
@@ -240,21 +236,3 @@ const userLoggedIn = (result) => {
     setHomeView(user);
     console.log('signed in as: ' + user.displayName);
 }
-
-
-
-
-
-
-// Set Menu Item
-// var userRecipes = db.doc('users/diva').collection('recipes');
-
-// userRecipes.add({
-//     name: 'Hash Browns'
-// })
-// .then(function() {
-//     console.log("Document successfully written!");
-// })
-// .catch(function(error) {
-//     console.error("Error writing document: ", error);
-// });
