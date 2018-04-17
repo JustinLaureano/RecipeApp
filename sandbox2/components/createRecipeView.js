@@ -38,7 +38,7 @@ const createRecipeView = `
             </ol>
 
             <label for="recipeSummary">Step</label>
-            <input type="text" placeholder="Enter Next Step" id="directionStep">
+            <textarea rows="3" cols="50" placeholder="Enter Direction" id="directionStep"></textarea>
 
             <button type="button" id="addDirection">Add Another Direction</button>
 

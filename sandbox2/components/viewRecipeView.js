@@ -8,5 +8,7 @@ const viewRecipeView = `
         <ul id="ingredientList"></ul>
         <h2>Directions</h2>
         <ol id="directionList"></ol>
+        <button id="backtoCreateRecipeView">Create Recipes</button>
+        <button id="backtoRecipesView">View Recipes</button>
     </section>
 `;

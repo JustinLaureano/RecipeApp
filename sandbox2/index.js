@@ -142,7 +142,7 @@ const setCreateRecipe = (user) => {
         if (isValid) {
             saveRecipe(user, recipeName, recipeSummary, recipeCategory, recipeIngredients, recipeDirections);
             clearRecipeForm();
-            // showPreview();
+            setViewRecipe(user, recipeName);
         }
     };
 
@@ -212,22 +212,31 @@ const setViewRecipe = (user, recipeName) => {
         .catch((error) => {
             console.log("This recipe doesn't exist.", error);
         });
+    
+    const backtoCreateRecipeViewBtn = document.getElementById('backtoCreateRecipeView');
+    backtoCreateRecipeViewBtn.addEventListener('click', () => {
+        setCreateRecipe(user);
+    });
+
+    const backtoRecipesViewBtn = document.getElementById('backtoRecipesView');
+    backtoRecipesViewBtn.addEventListener('click', () => {
+        setViewRecipes(user);
+    });
 };
 
 const setHomeView = (user) => {
     document.getElementById('container').innerHTML = Home;
+
     const createRecipeViewBtn = document.getElementById('createRecipeView');
-    const viewRecipesViewBtn = document.getElementById('viewRecipesView');
-
-
     createRecipeViewBtn.addEventListener('click', () => {
         setCreateRecipe(user);
     });
 
+    const viewRecipesViewBtn = document.getElementById('viewRecipesView');
     viewRecipesViewBtn.addEventListener('click', () => {
         setViewRecipes(user);
     });
-}
+};
 
 const userLoggedIn = (result) => {
     const user = result.user;
