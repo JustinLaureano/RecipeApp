@@ -1,0 +1,9 @@
+Add Recipe
+Remove Recipe
+Edit Recipe
+
+Set Text Filter  ie. search bar
+Sort By Date Added
+Sort By Category
+Set Start Date
+Set End Date

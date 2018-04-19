@@ -1,11 +1,14 @@
+// import configKeys from '../config.js';
+console.log(configKeys.apiKey);
+
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyARPOtKCy_GznFEAqtNjKOvhk1nL-Jl8Ps",
-    authDomain: "recipe-app-ca2ee.firebaseapp.com",
-    databaseURL: "https://recipe-app-ca2ee.firebaseio.com",
-    projectId: "recipe-app-ca2ee",
-    storageBucket: "recipe-app-ca2ee.appspot.com",
-    messagingSenderId: "486892381247"
+    apiKey: configKeys.apiKey,
+    authDomain: configKeys.authDomain,
+    databaseURL: configKeys.databaseURL,
+    projectId: configKeys.projectId,
+    storageBucket: configKeys.storageBucket,
+    messagingSenderId: configKeys.messagingSenderId
 };
 firebase.initializeApp(config);
 var db = firebase.firestore();
