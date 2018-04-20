@@ -1,6 +1,3 @@
-// import configKeys from '../config.js';
-console.log(configKeys.apiKey);
-
 // Initialize Firebase
 var config = {
     apiKey: configKeys.apiKey,
