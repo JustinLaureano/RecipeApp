@@ -5,8 +5,8 @@ const AddRecipePage = `
 
             <fieldset>
                 <div>
-                    <label>Category</label>
-                    <select>
+                    <label for="recipeCategory">Category</label>
+                    <select id="recipeCategory">
                         <option>Appetizer</option>
                         <option>Salads</option>
                         <option>Entrees</option>
@@ -14,14 +14,17 @@ const AddRecipePage = `
                     </select>
                 </div>
                 <input type="text" placeholder="Recipe Name">
-                <textarea placeholder="Recipe Description (Optional)" rows="3" cols="50">
+                <textarea id="recipeSummary" 
+                    placeholder="Recipe Description (Optional)" 
+                    rows="3" cols="50"
+                >
             </fieldset>
 
             <fieldset>
                 <legend>Add Ingredients</legend>
-                <input placeholder="Amount">
-                <input placeholder="Ingredient">
-                <button>
+                <input id="ingredientAmount" placeholder="Amount">
+                <input id="ingredientItem" placeholder="Ingredient">
+                <button type="button" id="addIngredient">
                     <img src="https://fillmurray.com/18/18">
                     Add Ingredient
                 </button>
@@ -39,16 +42,16 @@ const AddRecipePage = `
 
             <fieldset>
                 <legend>Add Procedures</legend>
-                <textarea placeholder="Next Procedure">
-                <button>
+                <textarea id="procedureText" placeholder="Next Procedure">
+                <button type="button" id="addProcedure">
                     <img src="https://fillmurray.com/18/18">
                     Add Procedure
                 </button>
             </fieldset>
 
-            <section>
-                <div id="ProcedureItem">
-                    <p id="procedure">Grill and Serve</p>
+            <section id="procedureItems">
+                <div id="procedureItem">
+                    <p>Grill and Serve while hot.</p>
                     <div>
                         <img src="fillmurray,com/18/18">
                     </div>
@@ -56,8 +59,8 @@ const AddRecipePage = `
             </section>
 
             <section>
-                <button>Clear Recipe</button>
-                <button>Add Recipe</button>
+                <button type="button" id="clearRecipeFields">Clear Recipe</button>
+                <button type="button" id="submitRecipeButton">Add Recipe</button>
             </section>
         </div>
     </div>
