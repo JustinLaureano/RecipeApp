@@ -1,5 +1,5 @@
 // Initialize Firebase
-var config = {
+const config = {
     apiKey: configKeys.apiKey,
     authDomain: configKeys.authDomain,
     databaseURL: configKeys.databaseURL,
@@ -8,7 +8,7 @@ var config = {
     messagingSenderId: configKeys.messagingSenderId
 };
 firebase.initializeApp(config);
-var db = firebase.firestore();
+const db = firebase.firestore();
 
 //Google Auth
 loggedIn = false;
